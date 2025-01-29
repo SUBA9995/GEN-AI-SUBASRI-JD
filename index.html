@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Fact</h1>
+        <p id="fact"></p>
+        <button id="nextFactButton">Show Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The solar system is about 4.6 billion years old.",
+            "There are eight planets in the solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+            "The sun contains 99.86% of the total mass of the solar system.",
+            "Jupiter is the largest planet in the solar system, with a diameter of about 86,881 miles (139,822 kilometers).",
+            "Mercury is the closest planet to the sun and has no atmosphere.",
+            "Saturn is famous for its stunning rings, which are made up of ice and rock particles.",
+            "Earth is the only planet known to support life.",
+            "Mars is often called the 'Red Planet' due to its reddish appearance from iron oxide on its surface.",
+            "Neptune has the strongest winds in the solar system, reaching speeds of over 1,200 miles per hour (2,000 kilometers per hour).",
+            "Pluto was reclassified as a 'dwarf planet' in 2006 by the International Astronomical Union."
+        ];
+
+        let currentFactIndex = 0;
+
+        const factElement = document.getElementById('fact');
+        const nextFactButton = document.getElementById('nextFactButton');
+
+        function showNextFact() {
+            factElement.textContent = facts[currentFactIndex];
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Loop back to the start
+        }
+
+        nextFactButton.addEventListener('click', showNextFact);
+
+        // Show the first fact on page load
+        showNextFact();
+    </script>
+</body>
+</html>
